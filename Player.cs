@@ -17,6 +17,7 @@ namespace Pong
 
         public int sizex { get; set; }
         public int sizey { get; set; }
+        public int score { get; set; }
 
         public Rectangle hitbox { get; set; }
 
@@ -28,6 +29,7 @@ namespace Pong
             sizex = _sizex;
             sizey = _sizey;
             screen_size = _screen_size;
+            score = 0;
 
             position = _position;
             velocity = new Vector2(0, 0);

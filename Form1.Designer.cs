@@ -32,6 +32,7 @@
             this.game_timer = new System.Windows.Forms.Timer(this.components);
             this.screen = new System.Windows.Forms.Panel();
             this.cooldown_timer = new System.Windows.Forms.Timer(this.components);
+            this.ball_speed_timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // game_timer
@@ -45,7 +46,7 @@
             this.screen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.screen.Location = new System.Drawing.Point(0, 0);
             this.screen.Name = "screen";
-            this.screen.Size = new System.Drawing.Size(800, 450);
+            this.screen.Size = new System.Drawing.Size(782, 453);
             this.screen.TabIndex = 0;
             this.screen.Paint += new System.Windows.Forms.PaintEventHandler(this.screen_Paint);
             // 
@@ -54,11 +55,17 @@
             this.cooldown_timer.Enabled = true;
             this.cooldown_timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ball_speed_timer
+            // 
+            this.ball_speed_timer.Enabled = true;
+            this.ball_speed_timer.Interval = 3000;
+            this.ball_speed_timer.Tick += new System.EventHandler(this.ball_speed_timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.screen);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -74,6 +81,7 @@
         private System.Windows.Forms.Timer game_timer;
         private System.Windows.Forms.Panel screen;
         public System.Windows.Forms.Timer cooldown_timer;
+        private System.Windows.Forms.Timer ball_speed_timer;
     }
 }
 

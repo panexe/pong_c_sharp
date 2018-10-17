@@ -17,8 +17,10 @@ namespace Pong
         Game game;
         public Form1()
         {
+            this.Size = new Size(800, 500);
             InitializeComponent();
-            Vector2 size = new Vector2(this.Width, this.Height);
+            Vector2 size = new Vector2(screen.Width, screen.Height);
+
             game = new Game(size);
 
         }
@@ -37,13 +39,15 @@ namespace Pong
 
             if (game.game_over)
             {
-                game_timer.Stop();
+                //game_timer.Stop();
             }
         }
 
         private void screen_Paint(object sender, PaintEventArgs e)
         {
             game.draw(e);
+
+            game.draw_score(e);
 
             typeof(Panel).InvokeMember("DoubleBuffered",
     BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
@@ -94,6 +98,11 @@ namespace Pong
             {
                 game.move_player1(false, false);
             }
+        }
+
+        private void ball_speed_timer_Tick(object sender, EventArgs e)
+        {
+            game.ball.velocity_factor++;
         }
     }
 }

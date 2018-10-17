@@ -8,14 +8,15 @@ using System.Windows.Forms;
 
 namespace Pong
 {
-    class Ball
+    public class Ball
     {
-        Vector2 position { get; set; }
+        public Vector2 position { get; set; }
         Vector2 velocity { get; set; }
 
         public int size { get; set; }
         public float radian { get; set; }
         public int degree { get; set; }
+        public int velocity_factor { get; set; }
 
         public Vector2 radianVector { get; set; }
         public Rectangle hitbox{get;set;}
@@ -23,7 +24,7 @@ namespace Pong
 
         Brush brush;
 
-        public Ball(Brush _brush, Vector2 _position , int _size , int _initDegree)
+        public Ball(Brush _brush, Vector2 _position , int _size , int _initDegree, int _velocity_factor)
         {
 
             //init
@@ -35,7 +36,7 @@ namespace Pong
             velocity = new Vector2(5, 0);
             size = _size;
 
-            
+            velocity_factor = _velocity_factor;
 
             updateHitbox();
 
@@ -59,18 +60,22 @@ namespace Pong
             degree = degree - (2 * (90- (180-degree)));
 
             // down & left boarder to player 1 (correct)
-            if (degree > 180)
+            if (degree >= 180)
                 degree = degree + (180 - 2* (degree - 180));
         }
 
         public void turnAroundRight()
         {
             // up & rigthborder to player 2 ( correct )
-             if(degree >= 0 && degree <=180)
+             if(degree > 0 && degree <180)
                 degree = degree + (2*(90-degree));
             // down & rightborder to player 2 ( correct)
-            if (degree <= 360 && degree >= 180)
+            else if (degree < 360 && degree > 180)
                 degree = degree - (2 * (90 -(360 - degree)));
+            else if(degree == 0 || degree == 360)
+            {
+                degree = 180;
+            }
 
 
         }
@@ -82,7 +87,7 @@ namespace Pong
                 degree = degree + (180 + 2 * (90 - degree));
 
             // lower screen boundary 
-            else if ( degree > 180 && degree < 360)
+            else if ( degree >= 180 && degree <= 360)
             {
                 degree = degree - 360 + 2 * (360 - degree);
             }
@@ -101,7 +106,7 @@ namespace Pong
             updateRadian();
 
 
-            position = new Vector2(position.x + radianVector.x + Convert.ToInt32(radianVector.v1*5), position.y + radianVector.y + Convert.ToInt32(radianVector.v2*5));
+            position = new Vector2(position.x + radianVector.x + Convert.ToInt32(radianVector.v1*velocity_factor), position.y + radianVector.y + Convert.ToInt32(radianVector.v2*velocity_factor));
             hitbox = new Rectangle(position.x , position.y, size, size);
         }
     }

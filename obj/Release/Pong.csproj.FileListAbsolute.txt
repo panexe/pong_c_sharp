@@ -1,0 +1,9 @@
+C:\Users\Lars Neumann\source\repos\Pong\Pong\bin\Release\Pong.exe.config
+C:\Users\Lars Neumann\source\repos\Pong\Pong\bin\Release\Pong.exe
+C:\Users\Lars Neumann\source\repos\Pong\Pong\bin\Release\Pong.pdb
+C:\Users\Lars Neumann\source\repos\Pong\Pong\obj\Release\Pong.Form1.resources
+C:\Users\Lars Neumann\source\repos\Pong\Pong\obj\Release\Pong.Properties.Resources.resources
+C:\Users\Lars Neumann\source\repos\Pong\Pong\obj\Release\Pong.csproj.GenerateResource.cache
+C:\Users\Lars Neumann\source\repos\Pong\Pong\obj\Release\Pong.csproj.CoreCompileInputs.cache
+C:\Users\Lars Neumann\source\repos\Pong\Pong\obj\Release\Pong.exe
+C:\Users\Lars Neumann\source\repos\Pong\Pong\obj\Release\Pong.pdb
